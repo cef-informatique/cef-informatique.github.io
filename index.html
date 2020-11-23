@@ -113,31 +113,21 @@ li.dropdown {
  <li><a href="https://www.net-entreprises.fr/">Net-Entreprises</a></li>
 </ul>
 
-<script>
-function UpdateFormAction() {
-   var url = document.getElementById("searchenginemenu").value;
-   document.getElementById("myForm").action = url; } </script> <script> function myFunction() {
-     var e = document.getElementById("myDIV");
-     if (e.style.display === "block") {
-         e.style.display = "none";
-     } else {
-         e.style.display = "block";
-     }
-}
-</script>
 <div id="block_container">
-	<div id="bloc1" class="custom-select" style="width:120px;">
-	<select id="searchenginemenu">
-		<option value="https://www.google.fr/search?q=">Google</option>
-	</select>
-	</div>
-	<div id="bloc2" class="search-bar-fast">
-	<form id="myForm" method="get" action="" onsubmit="UpdateFormAction()">
-				<input type="text" placeholder="Faites une recherche rapide ici..." 
-name="q" autofocus="autofocus" size="49" maxlength="255" value="" />
-				<input type="submit" value="Go" />
-	</form>
-	</div>
+<form method="get" action="http://www.google.com/search">
+
+<div style="border:2px dotted black;padding:4px;width:15em;">
+<table border="0" align="center" cellpadding="0">
+<tr><td>
+<input type="text"   name="q" size="25" style="color:#808080;"
+maxlength="255" value="Google site search"
+onfocus="if(this.value==this.defaultValue)this.value=''; this.style.color='black';" onblur="if(this.value=='')this.value=this.defaultValue; "/>
+<input type="submit" value="Go!" />
+<input type="hidden" name="sitesearch" value="yoursite.com" /></td></tr>
+</table>
+</div>
+
+</form>
 </div>
 <br>
 <br>

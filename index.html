@@ -96,7 +96,6 @@ li.dropdown {
 /* Thème barre de recherche */
 .text_input input[type="text"] {
     position: absolute;
-    top: 200px;
     left: 50%;
     transform: translateX(-50%);
     margin: 250px 0;
@@ -133,6 +132,10 @@ li.dropdown {
     padding:10px 10px;
     border-radius: 5px;
 }
+.btns{
+  margin-top:50%;
+  transform:translateY(-50%)
+  }
 </style>
 </head>
 <body>
@@ -175,7 +178,8 @@ li.dropdown {
      </div>
    </li>
 </ul>
-<center><img src="wizzyoo02.png" style="position:relative; top:170px" alt="Wizz Yoo Conseil"></center>
+<div class="btns">
+<center><img src="wizzyoo02.png" style="position:relative" alt="Wizz Yoo Conseil"></center>
 <form action="https://google.com/search">
       <div class="text_input">
                 <input type="text" name="q" autofocus="autofocus">
@@ -184,6 +188,7 @@ li.dropdown {
                 <input type="submit" value="Recherche Google">
       </div>
 </form>
+</div>
 <br>
 <br>
 </body> 

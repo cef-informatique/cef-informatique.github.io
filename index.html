@@ -61,7 +61,7 @@ li.dropdown {
      display: block;
 }
 
-/* Centrer les barres de recherche */
+/* Centrer la barre de recherche */
 #block_container
 {
      text-align:center;
@@ -93,6 +93,61 @@ li.dropdown {
      left: 50%;
      margin-right: -50%;
      transform: translate(-50%, -50%)
+}
+/* Thème barre de recherche */
+.text_input input[type="text"] {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 250px 0;
+    width: 500px;
+    height: 35px;
+    border-radius: 25px;
+    border: 3px grey solid;
+    font-size: 20px;
+    padding: 5px;
+    
+}
+.text_input input:focus {
+    background-color: grey;
+  }
+.text_input:hover {
+    background-color: khaki;
+    border-radius: 25px;
+}
+
+
+.search_box input[type="submit"] {
+    text-align: center;
+    color: black;
+    font-weight: 300;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+    font-style: normal;
+    background-color: yellowgreen;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-130%);
+    margin: 320px 0;
+    padding:10px 10px;
+    border-radius: 5px;
+}
+
+.lucky input[type="submit"]{
+    text-align: center;
+    color: black;
+    font-weight: 300;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+    font-style: normal;
+    background-color: yellowgreen;
+    position: absolute;
+    left: 50%;
+    transform: translateX(20%);
+    margin: 320px 0;
+    padding: 10px 10px;
+    border-radius: 5px;
+    
 }
 </style>
 </head>
@@ -155,6 +210,19 @@ onfocus="if(this.value==this.defaultValue)this.value=''; this.style.color='black
 </div>
 <br>
 <br>
+<form action="https://google.com/search">
+            <div class="text_input">
+                <input type="text" name="q">
+            </div>
+            <div class="search_box">
+                <input type="submit" value="Google Search">
+            </div>
+        </form>  
+        <form action="https://www.google.com/doodles/">
+            <div class="lucky">
+                <input type="submit" value="I'm Feeling Lucky">
+            </div>
+        </form>
 	</body> 
 </html>
 

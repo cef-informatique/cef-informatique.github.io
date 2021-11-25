@@ -34,6 +34,45 @@ li a, .dropbtn {
      text-decoration: none;
 }
 
+li a, .dropbtn2 {
+     display: inline-block;
+}
+     
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+/* Dropup content (Hidden by Default) */
+.dropup-content {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropup */
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropup links on hover */
+.dropup-content a:hover {background-color: #ddd}
+
+/* Show the dropup menu on hover */
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+/* Change the background color of the dropup button when the dropup content is shown */
+.dropup:hover .dropbtn2 {
+  background-color: #2980B9;
+}     
 li a:hover, .dropdown:hover .dropbtn {
      background-color: white;
 }
@@ -215,9 +254,9 @@ li.dropdown {
 <br>
 <br>
   <div style="position: absolute; bottom: 0; right: 0; width: 100px; text-align:right;">
-     <li class="dropdown">
-     <b><a href="javascript:void(0)" class="dropbtn"><p style="color:grey;font-size:10px;">Administration</p></a></b>
-     <div class="dropdown-content">
+     <li class="dropup">
+     <b><a href="javascript:void(0)" class="dropbtn2"><p style="color:grey;font-size:10px;">Administration</p></a></b>
+     <div class="dropup-content">
         <b><a href="https://www.jedeclare.com/member/login/anonymous" target="_blank">Je déclare</a></b>
         <b><a href="https://extranet.jefacture.com/login2/redirect/gobox" target="_blank">Je facture</a></b>
         <b><a href="https://identification.experts-comptables.org/cas/login?service=https://extranet.jesignexpert.com/cas/login?origin%3Dhttps%253A%252F%252Fextranet.jesignexpert.com%252Fextranet" target="_blank">Je signe expert</a></b>

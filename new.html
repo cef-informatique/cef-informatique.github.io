@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+	body {
+	  font-family: Arial, sans-serif;
+	  display: flex; /* Add display and align-items properties */
+	  align-items: center;
+	  justify-content: center;
+	  text-align: center;
+	  background-color: #ffffff;
+	  color: #000000;
+	  margin: 0;
+	  padding: 0;
+	}
+        #search-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 150px;
+        }
+        #search-container img {
+            width: 429px;
+            height: 119px;
+        }
+        #search-container form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #search-container input[type="text"] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 4px solid darkgray;
+            border-radius: 20px;
+            background-color: white;
+            font-size: 16px;
+            transition: border-color 0.3s ease-in-out;
+            outline: none;
+        }
+        #search-container input[type="text"]:focus {
+            border-color: #16adcb;
+        }
+        #search-container input[type="submit"] {
+            background-color: #16adcb;
+            color: white;
+            padding: 12px 30px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        #search-container input[type="submit"]:hover {
+            background-color: #0d829c;
+        }
+        #search-container .search-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+	    padding: 0 5px;
+        }
+        #links {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: #16adcb;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        #links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            transition: color 0.3s ease-in-out;
+        }
+        #links a:hover {
+            color: #021418;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #16adcb;
+            min-width: 160px;
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #0d829c;
+        }
+    </style>
+</head>
+<body>
+<div id="links">
+  <div class="dropdown">
+    <a href="#">Categories 1</a>
+    <div class="dropdown-content">
+      <a href="#">Category 1-1</a>
+      <a href="#">Category 1-2</a>
+      <a href="#">Category 1-3</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <a href="#">Categories 2</a>
+    <div class="dropdown-content">
+      <a href="#">Category 2-1</a>
+      <a href="#">Category 2-2</a>
+      <a href="#">Category 2-3</a>
+    </div>
+  </div>
+</div>
+
+    <div id="search-container">
+        <img src="wizzyoo02(1).png" alt="Website Logo">
+        <div class="search-wrapper">
+            <form action="https://www.google.com/search" method="GET" target="_blank">
+                <input type="text" name="q" placeholder="Search...">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

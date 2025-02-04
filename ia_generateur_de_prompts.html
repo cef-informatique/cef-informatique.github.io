@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ChatGPT - Génération d'un prompt QQCCPQO</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px; /* changement de width à max-width */
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #16c4f5;
+            text-align: center;
+        }
+        h2 {
+            color: #1d6079;
+            font-size:1.2em;
+            margin:5px;
+        }
+        h3 {
+            color: #16c4f5;
+            font-size:1em;
+            margin:5px;
+        }        
+
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #ffffff;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .background-gris
+        {
+            background-color:#f8f8f8;
+        }
+
+        .bleu_clair
+        {
+            color:#16c4f5;
+        }
+
+        .texte-information
+        {
+            color:grey;
+            font-size:12px;
+        }
+        .texte-introduction
+        {
+            color:#ffffff;
+            font-size:16px;
+            font-weight: light;
+            line-height: 1.8em;
+            padding-left:5px;
+        } 
+        .introduction {
+            background-color:#16c4f5;
+            padding:5px;
+        }
+        .center {
+            text-align: center;
+        }
+        hr {
+        border: none;
+        height: 2px;
+        background-color: #ccc;
+        margin: 10px 0;
+        }
+
+        /* CSS pour les compteurs */
+        .counter {
+            display: block;
+            font-size: 10px;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        .counter.under {
+            color: blue;
+        }
+
+        .counter.over {
+            color: #c00000;
+        }
+
+        /* Styles pour la popin */
+        .popin {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            z-index: 9999;
+            overflow-y: scroll;  /* Ajouté pour forcer l'affichage de la barre de défilement */
+            max-height: 80vh;    /* Ajouté pour limiter la hauteur de la popin à 80% de la hauteur de la fenêtre */
+        }
+        
+        .tab-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-top: 20px;
+			margin-bottom: 20px;
+        }
+        
+        .popin-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #888;
+        }
+
+        .popin-example-row {
+            margin-bottom: 15px;
+        }
+        
+        .popin-example-row textarea {
+            width: 100%;
+            height: 80px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .hidden-example {
+            display: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+            h1, h2 {
+                font-size: 1.5em; /* diminuer la taille de police pour les titres */
+            }
+            
+            input[type="text"], textarea {
+                font-size: 14px; /* augmenter la taille de police pour les champs de saisie */
+            }
+
+        }
+
+		/* Style des onglets */
+		.tab {
+		  display: flex; /* Utilisation de flexbox */
+		  overflow: hidden;
+		  border: 1px solid #ccc;
+		  background-color: #f1f1f1;
+		}
+
+		/* Style des boutons à l'intérieur du tab */
+		.tab button {
+		  background-color: #83dfeb; /* Couleur pastel pour les onglets non actifs */
+		  color: white;
+		  flex: 1; /* Répartit équitablement l'espace disponible */
+		  border: none;
+		  outline: none;
+		  cursor: pointer;
+		  padding: 14px 16px;
+		  transition: 0.3s;
+		  font-size: 17px;
+		}
+
+		/* Change background color of buttons on hover */
+		.tab button:hover {
+		  background-color: #1d6079; /* Bleu plus foncé au survol */
+		  color: white;
+		}
+
+		/* Create an active/current tablink class */
+		.tab button.active {
+		  background-color: #4CAF50; /* Vert pour l'onglet actif */
+		  color: white;
+		}
+
+		/* Style the tab content */
+		.tabcontent {
+		  display: none;
+		  padding: 6px 12px;
+		  border: 1px solid #ccc;
+		  border-top: none;
+		}
+		
+    </style>
+</head>
+<body>
+
+<div class="container">
+	<h1>Générateur de prompt ChatGPT</h1>
+	<div class="introduction">
+	<p class="texte-introduction">● Cet outil est conçu pour créer un prompt ChatGPT efficace en utilisant la méthode QQCCPQO.<br>● C'est-à-dire : "Qui / Quoi / Comment / Combien / Pourquoi / Quand / Où".<br>● Cette méthode permet de donner toutes les informations utiles à ChatGPT.<br>● Selon le sujet de la question, il n'est pas forcément nécessaire de remplir tous les champs.<br>● Le bouton "Exemples de prompts" vous permet de remplir le générateur à partir d'exemples.</p>
+	</div>
+	<div class="tab">
+		<button class="tablinks" data-tabname="Generator" onclick="openTab('Generator')">Générateur de prompt</button>
+		<button class="tablinks" data-tabname="Examples" onclick="openTab('Examples')">Exemples de prompts</button>
+		<button class="tablinks" data-tabname="Plugins" onclick="openTab('Plugins')">Liste de Plugins</button>
+	</div>
+	<div id="Generator" class="tabcontent">	
+		<h2 class="tab-title center">Générateur de prompt</h2>
+		<button onclick="clearForm()" style="background-color: #b22222; color: white;">Vider le formulaire</button>
+		<div id="role">
+			<h2>Rôle</h2>
+			<input type="text" id="identity" placeholder="Qui - Identité ?" title="Exemple : Tu vas me répondre comme un expert-comptable." oninput="updatePrompt()">
+			<input type="text" id="style" placeholder="Qui - Style / Ton ?" title=" Exemple : Utilise un langage accessible pour les clients du cabinet." oninput="updatePrompt()">
+		</div>
+		<div id="action">
+			<h2>Action</h2>
+			<input type="text" id="what" placeholder="Quoi ?" title="Exemple : Quelles sont les principaux ratios à analyser concernant l'excédent brut d'exploitation (EBE) ?" oninput="updatePrompt()">
+			<input type="text" id="how" placeholder="Comment ?" title="Exemple : Donne-moi les ratios sous forme de tableau." oninput="updatePrompt()">
+			<input type="text" id="howMuch" placeholder="Combien ?" title="Exemple : Il me faut 10 ratios." oninput="updatePrompt()">
+		</div>
+		<div id="context">
+			<h2>Contexte</h2>
+			<input type="text" id="why" placeholder="Pourquoi ?" title="Exemple : L'objectif est de présenter son bilan à mon client qui travaille dans le secteur de la vente au détail." oninput="updatePrompt()">
+			<input type="text" id="when" placeholder="Quand ?" title="Exemple : En 2023." oninput="updatePrompt()">
+			<input type="text" id="where" placeholder="Où ?" title="Exemple : En France." oninput="updatePrompt()">
+		</div>
+		<div id="details">
+			<h2>Précisions</h2>
+			<input type="text" id="detail1" placeholder="Précision 1" title="Exemple : Utilise la comptabilité française et le plan de compte français." oninput="updatePrompt()">
+			<input type="text" id="detail2" placeholder="Précision 2" title="Exemple : Ne compare pas avec la comptabilité d'autres pays." oninput="updatePrompt()">
+			<input type="text" id="detail3" placeholder="Précision 3" oninput="updatePrompt()">
+			<input type="text" id="detail4" placeholder="Précision 4" oninput="updatePrompt()">
+		</div>
+		<div id="options">
+			<h2>Option : texte à envoyer</h2>
+			<textarea id="extraText"  title="Exemple : Voici le texte à analyser : (votre texte ici)" oninput="updatePrompt()"></textarea>
+		</div>
+		<hr>
+		<h2 class="bleu_clair">Prompt généré</h2>
+		<hr>
+		<button onclick="copyPrompt()">Copier le texte du prompt</button>
+		<textarea id="promptOutput" class="background-gris"></textarea>
+		<span id="promptCounter" class="counter"></span> <!-- Nouveau compteur -->
+		<hr>
+		<button onclick="copyXML()">Copier (pour sauvegarder) la version XML du prompt</button>
+		<p class="texte-information">Ou collez un XML déjà sauvegardé pour remplir le formulaire</p>
+		<textarea id="xmlOutput" class="background-gris"></textarea>
+		<span id="xmlCounter" class="counter"></span> <!-- Nouveau compteur -->
+		<button onclick="fillForm()">Remplir le formulaire avec ce XML du prompt</button>
+		<hr>
+		<button onclick="sendEmail('texte')">Envoyer ce prompt (texte) par mail</button>
+		<button onclick="sendEmail('xml')">Envoyer ce prompt (xml) par mail</button>
+		<p class="texte-information">Pratique pour sauvegarder son contenu. Ces boutons ouvrent votre logiciel de messagerie.<br><strong>Attention : </strong>Si le prompt fait plus de 1200 caractères, les boutons ne fonctionnent pas dans certains navigateurs.</p>
+
+	</div>
+    <!-- Popin -->
+	<div id="Examples" class="tabcontent">
+
+
+			<h2 class="tab-title center">Exemples de prompts</h2>
+			<!-- Contenu de la popin ici -->
+			<!-- Lignes d'exemples -->
+			
+			<div class="popin-example-row">
+				<h3>Obtenir une liste de ratios sur l'EBE</h3>
+				<textarea>Tu vas me répondre comme un expert-comptable. Utilise un langage accessible pour les clients du cabinet. Quelles sont les principaux ratios à analyser concernant l’excédent brut d’exploitation (EBE) ? Donne-moi les ratios sous forme de tableau. Il me faut 10 ratios. L'objectif est de présenter son bilan à mon client qui travaille dans le secteur de la vente au détail. En 2023. En France. Utilise la comptabilité française et le plan de compte français. Ne compare pas avec la comptabilité d'autres pays.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Tu vas me répondre comme un expert-comptable.</identity><style>Utilise un langage accessible pour les clients du cabinet.</style><what>Quelles sont les principaux ratios à analyser concernant l’excédent brut d’exploitation (EBE) ?</what><how>Donne-moi les ratios sous forme de tableau.</how><howMuch>Il me faut 10 ratios.</howMuch><why>L'objectif est de présenter son bilan à mon client qui travaille dans le secteur de la vente au détail.</why><when>En 2023.</when><where>En France.</where><detail1>Utilise la comptabilité française et le plan de compte français.</detail1><detail2>Ne compare pas avec la comptabilité d'autres pays.</detail2></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>
+			
+			<div class="popin-example-row">
+				<h3>Demander d'écrire un article</h>
+				<textarea>Agis comme un journaliste. Utilise un ton sérieux. Ecris un article pour répondre aux questions suivantes : 1/ Qui a inventé ChatGPT ? 2/ De quand date ChatGPT ? 3/ ChatGPT peut-il se tromper ? 4/ ChatGPT peut-il m’aider en droit des affaires ? 5/ ChatGPT peut-il m’aider à faire la synthèse d’un article de comptabilité ? Utilise un vocabulaire simple. L'article doit faire 300 mots environs. L'objectif est de répondre aux questions d'un groupe d'étudiant lors d'une conférence sur ChatGPT. Cette année. L'article s'appelle "ChatGPT se présente". Complète l'article d'informations importantes et intéressantes sur ChatGPT. N'écris pas la liste des questions, il faut juste y répondre au cours de l'article.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis comme un journaliste.</identity><style>Utilise un ton sérieux.</style><what>Ecris un article pour répondre aux questions suivantes : 1/ Qui a inventé ChatGPT ? 2/ De quand date ChatGPT ? 3/ ChatGPT peut-il se tromper ? 4/ ChatGPT peut-il m’aider en droit des affaires ? 5/ ChatGPT peut-il m’aider à faire la synthèse d’un article de comptabilité ?</what><how>Utilise un vocabulaire simple.</how><howMuch>L'article doit faire 300 mots environs.</howMuch><why>L'objectif est de répondre aux questions d'un groupe d'étudiant lors d'une conférence sur ChatGPT.</why><when>Cette année.</when><detail1>L'article s'appelle "ChatGPT se présente".</detail1><detail2>Complète l'article d'informations importantes et intéressantes sur ChatGPT.</detail2><detail3>N'écris pas la liste des questions, il faut juste y répondre au cours de l'article.</detail3></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>
+			
+			<div class="popin-example-row">
+				<h3>Demander une note sur un sujet</h>
+				<textarea>Agis comme un expert-comptable. Utilise un langage accessible pour un client qui n'est pas juriste. Mon client veut des explications sur les apports en nature lors de la création d'une société. Rédige-moi une note . La note doit faire 500 mots environs. Mon client veut comprendre comment fonctionnent les avantages en natures, et ce qu'il est possible de faire ou non. En 2023. En france. Termine par une liste de 5 points clés à retenir. A la suite des points clés, donne un tableau comparatif pour chaque type de société.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis comme un expert-comptable.</identity><style>Utilise un langage accessible pour un client qui n'est pas juriste.</style><what>Mon client veut des explications sur les apports en nature lors de la création d'une société.</what><how>Rédige-moi une note .</how><howMuch>La note doit faire 500 mots environs.</howMuch><why>Mon client veut comprendre comment fonctionnent les avantages en natures, et ce qu'il est possible de faire ou non.</why><when>En 2023.</when><where>En france.</where><detail1>Termine par une liste de 5 points clés à retenir.</detail1><detail2>A la suite des points clés, donne un tableau comparatif pour chaque type de société.</detail2></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>
+			
+			<div class="popin-example-row">
+				<h3>Demander une note sur un sujet (2)</h>
+				<textarea>Agis comme un expert-comptable. Utilise un vocabulaire simple à destination de mes clients. Mon client me demande la différence entre le résultat comptable et le résultat fiscal. Rédige une note d'explication. La note doit faire environ 300 mots. La note doit aider mon client à comprendre la différence entre le résultat comptable et le résultat fiscal. En 2023. En France. Termine par une liste à puces des 3 points les plus importants à retenir.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis comme un expert-comptable.</identity><style>Utilise un vocabulaire simple à destination de mes clients.</style><what>Mon client me demande la différence entre le résultat comptable et le résultat fiscal.</what><how>Rédige une note d'explication.</how><howMuch>La note doit faire environ 300 mots.</howMuch><why>La note doit aider mon client à comprendre la différence entre le résultat comptable et le résultat fiscal.</why><when>En 2023.</when><where>En France.</where><detail1>Termine par une liste à puces des 3 points les plus importants à retenir.</detail1></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>			
+
+			<div class="popin-example-row">
+				<h3>Corriger l'orthographe avec explication des fautes</h3>
+				<textarea>Je veux que tu agisses en tant que correcteur orthographique. Corrige le texte que je te donne dans le prochain prompt. J'aimerais que tu l'examines à la recherche de fautes d'orthographe, de grammaire ou de ponctuation. Je souhaite m’améliorer en orthographe et comprendre mes erreurs. Affiche les mots corrigés en gras dans ta réponse. A la fin du texte corrigé, liste les fautes et les corrections effectuées. Explique-moi les fautes, ainsi que les règles de grammaire ou d'orthographe qui ne sont pas respectées.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Je veux que tu agisses en tant que correcteur orthographique.</identity><what>Corrige le texte que je te donne dans le prochain prompt.</what><how>J'aimerais que tu l'examines à la recherche de fautes d'orthographe, de grammaire ou de ponctuation.</how><why>Je souhaite m’améliorer en orthographe et comprendre mes erreurs.</why><detail1>Affiche les mots corrigés en gras dans ta réponse.</detail1><detail2>A la fin du texte corrigé, liste les fautes et les corrections effectuées.</detail2><detail3>Explique-moi les fautes, ainsi que les règles de grammaire ou d'orthographe qui ne sont pas respectées.</detail3></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>
+
+			<div class="popin-example-row">
+				<h3>Créer une FAQ, en texte et sous forme de tableau</h3>
+				<textarea>Agis comme un avocat spécialisé en droit du travail. Utilise un langage accessible à des clients d'un cabinet d'expertise comptable qui ne sont pas des juristes. Crée un FAQ que le thème du contrat de travail. Je veux 10 questions / réponses. Pour aider mes clients à comprendre les points importants d'un contrat de travail pour leurs salariés. En 2030. En France. Termine en me donnant également cette FAQ sous la forme d'un tableau à deux colonnes : une colonnes "Question" et une colonne "Réponse".</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis comme un avocat spécialisé en droit du travail.</identity><style>Utilise un langage accessible à des clients d'un cabinet d'expertise comptable qui ne sont pas des juristes.</style><what>Crée un FAQ que le thème du contrat de travail.</what><howMuch>Je veux 10 questions / réponses.</howMuch><why>Pour aider mes clients à comprendre les points importants d'un contrat de travail pour leurs salariés.</why><when>En 2030.</when><where>En France.</where><detail1>Termine en me donnant également cette FAQ sous la forme d'un tableau à deux colonnes : une colonnes "Question" et une colonne "Réponse".</detail1></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>
+
+			<div class="popin-example-row">
+				<h3>Trouver des idées pour rédiger un document sur un thème</h3>
+				<textarea>Agis comme une spécialiste de l'intelligence artificielle. Utilise un langage compréhensible pour des professionnels de la comptabilité. Je dois trouver des idées pour rédiger un mémoire d'expertise comptable sur le thème de l'intelligence artificielle dans la comptabilité. Donne moi une liste numérotée d'idées pour aborder ce thème. Je veux 10 idées. Cette liste doit m'aider à structurer mon mémoire. En 2023. En France. Pour chaque idée, donne l'idée en titre puis explique le contenu qui pourrait figurer dans le mémoire en quelques mots.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis comme une spécialiste de l'intelligence artificielle.</identity><style>Utilise un langage compréhensible pour des professionnels de la comptabilité.</style><what>Je dois trouver des idées pour rédiger un mémoire d'expertise comptable sur le thème de l'intelligence artificielle dans la comptabilité.</what><how>Donne moi une liste numérotée d'idées pour aborder ce thème.</how><howMuch>Je veux 10 idées.</howMuch><why>Cette liste doit m'aider à structurer mon mémoire.</why><when>En 2023.</when><where>En France.</where><detail1>Pour chaque idée, donne l'idée en titre puis explique le contenu qui pourrait figurer dans le mémoire en quelques mots.</detail1></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>
+
+			<div class="popin-example-row">
+				<h3>Répondre à un mail avec argumentation</h3>
+				<textarea>Tu vas prendre le rôle d'un expert-comptable. Utilise un ton cordial mais sec. Analyse le mail d'un client que je vais te donner dans le prochain prompt. Utilise les 3 arguments suivants pour répondre : 1/ Il a rendu ses pièces en retard 2/ Il n'a pas répondu à nos appels téléphoniques 3/ Il s'était engagé à trier ses pièces, ce qui n'était pas le cas. Fais lui une réponse par mail. Le mail doit faire 20 lignes. L'objectif est de lui rappeler fermement que le retard n'est pas de notre fait. Le mail date de la semaine dernière. Avant de répondre, demande-moi le texte du mail du client.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Tu vas prendre le rôle d'un expert-comptable.</identity><style>Utilise un ton cordial mais sec.</style><what>Analyse le mail d'un client que je vais te donner dans le prochain prompt. Utilise les 3 arguments suivants pour répondre : 1/ Il a rendu ses pièces en retard 2/ Il n'a pas répondu à nos appels téléphoniques 3/ Il s'était engagé à trier ses pièces, ce qui n'était pas le cas.</what><how>Fais lui une réponse par mail.</how><howMuch>Le mail doit faire 20 lignes.</howMuch><why>L'objectif est de lui rappeler fermement que le retard n'est pas de notre fait.</why><when>Le mail date de la semaine dernière.</when><detail1>Avant de répondre, demande-moi le texte du mail du client.</detail1></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>
+
+			<div class="popin-example-row">
+				<h3>Apprendre des formules Excel</h3>
+				<textarea>Agis comme un spécialiste d'Excel. Utilise un langage accessible aux débutants. Donne-moi les formules les plus importantes à connaitre. Dans un tableau à 2 colonnes. Colonne 1 : La formule. Colonne 2 : l'explication de la formule. Je veux 10 formules. Pour apprendre à utiliser Excel. En 2023. En France.  J'utilise un Excel avec des formules en français. Je connais déjà ces formules : Si(), Somme(). Termine l'explication de la formule par un exemple.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis comme un spécialiste d'Excel.</identity><style>Utilise un langage accessible aux débutants.</style><what>Donne-moi les formules les plus importantes à connaitre.</what><how>Dans un tableau à 2 colonnes. Colonne 1 : La formule. Colonne 2 : l'explication de la formule.</how><howMuch>Je veux 10 formules.</howMuch><why>Pour apprendre à utiliser Excel.</why><when>En 2023.</when><where>En France. </where><detail1>J'utilise un Excel avec des formules en français.</detail1><detail2>Je connais déjà ces formules : Si(), Somme().</detail2><detail3>Termine l'explication de la formule par un exemple.</detail3></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>	
+
+			<div class="popin-example-row">
+				<h3>Créer un quiz</h3>
+				<textarea>Agis comme un professeur en droit social. Utilise un ton pédagogique pour des étudiants en droit en faculté.  Crée un quiz de sur le thème du bulletin de paie. Je veux 10 questions et 4 réponses possibles . l'objectif est de préparer les étudiants à un partiel sur ce sujet. En 2023. En France. A la fin, donne les réponses avec une courte explication de chaque réponse. Il ne peut y avoir qu'une seule bonne réponse par question.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis comme un professeur en droit social.</identity><style>Utilise un ton pédagogique pour des étudiants en droit en faculté. </style><what>Crée un quiz de sur le thème du bulletin de paie.</what><howMuch>Je veux 10 questions et 4 réponses possibles .</howMuch><why>l'objectif est de préparer les étudiants à un partiel sur ce sujet.</why><when>En 2023.</when><where>En France.</where><detail1>A la fin, donne les réponses avec une courte explication de chaque réponse.</detail1><detail2>Il ne peut y avoir qu'une seule bonne réponse par question.</detail2></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>
+			
+			<div class="popin-example-row">
+				<h3>Créer une page web</h3>
+				<textarea>Agis comme un créateur de contenu digital. Utilise un style journalistique. Rédige la page d'accueil de mon cabinet d'expertise comptable. Elle doit être optimisée SEO sur les mots clés suivants : expert-comptable, comptabilité, création d'entreprise, paie. Elle doit faire 600 mots environ. Tu dois écrire une introduction de 50 mots. Tu dois faire 4 parties sur les 4 sujets suivants : Comptabilité, Paie, Juridique, Administratif. Pour améliorer la visibilité du site et mieux expliquer nos différents services. En 2023. En France. Dans le contenu du site, indique que notre équipe est dynamique. Indique que le cabinet est proche de ses clients au quotidien. Indique que le cabinet utilise des outils modernes pour réaliser ses missions. Indique que tous les clients, mêmes petits, font l’objet de toutes les attentions.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis comme un créateur de contenu digital.</identity><style>Utilise un style journalistique.</style><what>Rédige la page d'accueil de mon cabinet d'expertise comptable.</what><how>Elle doit être optimisée SEO sur les mots clés suivants : expert-comptable, comptabilité, création d'entreprise, paie.</how><howMuch>Elle doit faire 600 mots environ. Tu dois écrire une introduction de 50 mots. Tu dois faire 4 parties sur les 4 sujets suivants : Comptabilité, Paie, Juridique, Administratif.</howMuch><why>Pour améliorer la visibilité du site et mieux expliquer nos différents services.</why><when>En 2023.</when><where>En France.</where><detail1>Dans le contenu du site, indique que notre équipe est dynamique.</detail1><detail2>Indique que le cabinet est proche de ses clients au quotidien.</detail2><detail3>Indique que le cabinet utilise des outils modernes pour réaliser ses missions.</detail3><detail4>Indique que tous les clients, mêmes petits, font l’objet de toutes les attentions.</detail4></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>				
+
+			<div class="popin-example-row">
+				<h3>Créer le plan d'un rapport</h3>
+				<textarea>Agis comme un expert-comptable. Crée-moi le plan du rapport d’un expert-comptable qui analyse les comptes d'une société à la demande du comité social et économique (CSE). Je veux 5 parties et 2 ou 3 sous partie par partie. Le rapport permettra d'expliquer les comptes annuels de l'entreprise aux élus du comité d'entreprise. En 2023. En France. L'entreprise compte 200 salariés et intervient dans le secteur de la vente au détail. Numérote toutes les parties et toutes les sous-parties.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis comme un expert-comptable.</identity><what>Crée-moi le plan du rapport d’un expert-comptable qui analyse les comptes d'une société à la demande du comité social et économique (CSE).</what><howMuch>Je veux 5 parties et 2 ou 3 sous partie par partie.</howMuch><why>Le rapport permettra d'expliquer les comptes annuels de l'entreprise aux élus du comité d'entreprise.</why><when>En 2023.</when><where>En France.</where><detail1>L'entreprise compte 200 salariés et intervient dans le secteur de la vente au détail.</detail1><detail2>Numérote toutes les parties et toutes les sous-parties.</detail2></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>	
+
+			<div class="popin-example-row">
+				<h3>Aider à raisonner</h3>
+				<textarea>Raisonne comme un chef d’entreprise. Aide-moi à faire des choix. Utilise la méthode des 6 chapeaux. Je veux une note de réflexion de 500 mots. Mon entreprise de coursiers compte 20 coursiers. Nous n'aurons bientôt plus assez de travail pour ces 20 coursiers avec l’augmentation constante des échanges électroniques. Dans les 5 années qui viennent. En région parisienne. Nous pensons avoir deux solutions : Réduire nos effectifs et conserver notre cœur de métier. Ou profiter de notre expérience en logistique pour développer de nouvelles activités, mais lesquelles ?</textarea>
+				<textarea class="hidden-example"><prompt><identity>Raisonne comme un chef d’entreprise.</identity><what>Aide-moi à faire des choix.</what><how>Utilise la méthode des 6 chapeaux.</how><howMuch>Je veux une note de réflexion de 500 mots.</howMuch><why>Mon entreprise de coursiers compte 20 coursiers. Nous n'aurons bientôt plus assez de travail pour ces 20 coursiers avec l’augmentation constante des échanges électroniques.</why><when>Dans les 5 années qui viennent.</when><where>En région parisienne.</where><detail1>Nous pensons avoir deux solutions :</detail1><detail2>Réduire nos effectifs et conserver notre cœur de métier.</detail2><detail3>Ou profiter de notre expérience en logistique pour développer de nouvelles activités, mais lesquelles ?</detail3></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>	
+
+			<div class="popin-example-row">
+				<h3>Résumer un document (copier/coller) ou un PDF (ChatGPT4)</h3>
+				<textarea>Tu vas agir comme un rédacteur spécialisé en finance. Utilise un style technique, mais restant accessible à des collaborateurs comptables. Résume moi le rapport financier suivant : [lien vers le rapport financier ou copier/coller du texte]. La synthèse doit faire 500 mots environ. Pour me permettre de prendre connaissance des grandes lignes de ce rapport . En 2023. En France. Donne moi les chiffres clés, mais garde une approche littéraire dans ton résumé. Termine par une liste numérotée des 10 points les plus notables.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Tu vas agir comme un rédacteur spécialisé en finance.</identity><style>Utilise un style technique, mais restant accessible à des collaborateurs comptables.</style><what>Résume moi le rapport financier suivant [lien vers le rapport financier].</what><howMuch>La synthèse doit faire 500 mots environ.</howMuch><why>Pour me permettre de prendre connaissance des grandes lignes de ce rapport .</why><when>En 2023.</when><where>En France.</where><detail1>Donne moi les chiffres clés, mais garde une approche littéraire dans ton résumé.</detail1><detail2>Termine par une liste numérotée des 10 points les plus notables.</detail2></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>	
+
+			<div class="popin-example-row">
+				<h3>Se faire aider par ChatGPT pour préciser un contexte / Un prompt</h3>
+				<textarea>Agis comme un enseignant en comptabilité. Je souhaite créer une formation d'une journée pour des débutants. Ce support sera réalisé sous Word. Pour aider des personnes débutantes à tenir une comptabilité simple. En 2023. En France. Il doit y avoir des cas pratiques et différentes techniques d'animations pendant cette journée.  Avant de m'écrire le plan de cette journée de formation, pose-moi toutes les questions que tu juges utiles pour répondre parfaitement à ma demande.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis comme un enseignant en comptabilité.</identity><what>Je souhaite créer une formation d'une journée pour des débutants.</what><how>Ce support sera réalisé sous Word.</how><why>Pour aider des personnes débutantes à tenir une comptabilité simple.</why><when>En 2023.</when><where>En France.</where><detail1>Il doit y avoir des cas pratiques et différentes techniques d'animations pendant cette journée. </detail1><detail2>Avant de m'écrire le plan de cette journée de formation, pose-moi toutes les questions que tu juges utiles pour répondre parfaitement à ma demande.</detail2></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>	
+			
+			<div class="popin-example-row">
+				<h3>Exemple ludique : invention d'un événement sportif</h3>
+				<textarea>Agis en tant que consultant sportif. Utilise du langage familier. Invente la victoire de la ville de "Sbitoule" en football, 3 à 0. Rédige un article. l'article doit faire 200 mots. L'objectif est de fêter la victoire de Sbitoule. Hier. A Sbitoule. A toi de jouer.</textarea>
+				<textarea class="hidden-example"><prompt><identity>Agis en tant que consultant sportif.</identity><style>Utilise du langage familier.</style><what>Invente la victoire de la ville de "Sbitoule" en football, 3 à 0.</what><how>Rédige un article.</how><howMuch>l'article doit faire 200 mots.</howMuch><why>L'objectif est de fêter la victoire de Sbitoule.</why><when>Hier.</when><where>A Sbitoule.</where><extraText>A toi de jouer.</extraText></prompt></textarea>
+				<button onclick="fillFormWithExample(this)">Remplir le générateur avec cet exemple</button>
+			</div>			
+														
+	</div>
+    <div id="Plugins" class="tabcontent">
+	<h2 class="tab-title center">Liste de plugins</h2>
+	<p class="texte-information">Bientôt une sélection de plugins utiles</p>
+    </div>
+		<hr>
+		<p class="texte-information">Version 5.0 - Cet outil a été créé par b-ready pour les participants à ses formations. Merci de ne pas le diffuser sans autorisation.</p>
+</div>
+    <script>
+        function updatePrompt() {
+            var fields = ['identity', 'style', 'what', 'how', 'howMuch', 'why', 'when', 'where', 'detail1', 'detail2', 'detail3', 'detail4','extraText'];
+            var prompt = '';
+            var xml = '<prompt>';
+            fields.forEach(function(field) {
+                var value = document.getElementById(field).value;
+                if (value) {
+                    if (!value.trim().endsWith('.') && !value.trim().endsWith(',') && !value.trim().endsWith(':') && !value.trim().endsWith(';') && !value.trim().endsWith('?') && !value.trim().endsWith('!')) {
+                        value += '.';
+                    }
+                    prompt += value + ' ';
+                    xml += '<' + field + '>' + value + '</' + field + '>';
+                }
+            });
+            xml += '</prompt>';
+
+            document.getElementById('promptOutput').value = prompt.trim();
+            updateCounter('promptCounter', prompt.trim().length);
+
+            document.getElementById('xmlOutput').value = xml;
+            updateCounter('xmlCounter', xml.length);
+        }
+
+        function updateCounter(id, length) {
+            var counter = document.getElementById(id);
+            counter.textContent = length + ' caractères';
+            if (length <= 1200) {
+                counter.classList.remove('over');
+                counter.classList.add('under');
+            } else {
+                counter.classList.remove('under');
+                counter.classList.add('over');
+            }
+        }
+        function copyPrompt() {
+            var copyText = document.getElementById("promptOutput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+        }
+        function copyXML() {
+            var copyText = document.getElementById("xmlOutput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+        }
+        function fillForm() {
+            var parser = new DOMParser();
+            var xml = parser.parseFromString(document.getElementById('xmlOutput').value, "text/xml");
+            var fields = ['identity', 'style', 'what', 'how', 'howMuch', 'why', 'when', 'where', 'detail1', 'detail2', 'detail3', 'detail4','extraText'];
+            fields.forEach(function(field) {
+                var element = xml.getElementsByTagName(field)[0];
+                document.getElementById(field).value = element && element.childNodes[0] ? element.childNodes[0].nodeValue : '';
+                });
+                updatePrompt();
+            }
+        function sendEmail(type) {
+            if(type == 'texte')
+            {
+               var goodprompt = document.getElementById('promptOutput').value;
+               var body = 'Prompt :\n\n' + goodprompt +'\n';
+            }
+            else
+            {
+                var goodprompt = document.getElementById('xmlOutput').value;
+                var body = 'Prompt :\n\n' + goodprompt +'\n';
+            }
+            window.location.href = 'mailto:?subject=Sauvegarde prompt ('+type+') ChatGPT &body=' + encodeURIComponent(body);
+        }
+        function openPopin() {
+        var popin = document.getElementById('popin');
+        popin.style.display = 'block';
+        }
+        function closePopin() {
+            var popin = document.getElementById('popin');
+            popin.style.display = 'none';
+        } 
+        function fillFormWithExample(button) {
+            var exampleRow = button.parentNode;
+            var hiddenTextarea = exampleRow.querySelector('.hidden-example');
+            var xml = hiddenTextarea.value;
+            
+            var parser = new DOMParser();
+            var xmlDoc = parser.parseFromString(xml, "text/xml");
+            var fields = ['identity', 'style', 'what', 'how', 'howMuch', 'why', 'when', 'where', 'detail1', 'detail2', 'detail3', 'detail4','extraText'];
+            
+            fields.forEach(function(field) {
+                var element = xmlDoc.getElementsByTagName(field)[0];
+                document.getElementById(field).value = element && element.childNodes[0] ? element.childNodes[0].nodeValue : '';
+            });
+            
+            updatePrompt();
+            openTab('Generator');
+        }
+
+
+function openTab(tabName) {
+  var i, tabcontent, tablinks;
+
+  // Masquer tous les éléments avec class="tabcontent"
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Enlever la classe "active" de tous les éléments avec class="tablinks"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    if (tablinks[i].getAttribute('data-tabname') === tabName) {
+      tablinks[i].className += " active";
+    }
+  }
+
+  // Afficher le contenu de l'onglet courant
+  document.getElementById(tabName).style.display = "block";
+}
+
+
+// Définir l'onglet "Generator" comme ouvert par défaut au chargement
+document.addEventListener("DOMContentLoaded", function() {
+  openTab('Generator');
+});
+
+function clearForm() {
+  var fields = ['identity', 'style', 'what', 'how', 'howMuch', 'why', 'when', 'where', 'detail1', 'detail2', 'detail3', 'detail4', 'extraText'];
+  fields.forEach(function(field) {
+    document.getElementById(field).value = '';
+  });
+  updatePrompt(); // Pour mettre à jour le prompt et le compteur de caractères
+}
+
+
+</script>
+</body>
+</html>

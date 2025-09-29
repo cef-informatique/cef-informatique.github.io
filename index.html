@@ -255,11 +255,9 @@ li.dropdown { display: inline-block; }
 
 <script>
 /* MODIFIER ICI */
-let status = "ok"; // "ok" | "issue" | "down"
+let status = "issue"; // "ok" | "issue" | "down"
 let explanations = [
-  "Nos serveurs de messagerie rencontrent des lenteurs.",
-  "Certains utilisateurs peuvent avoir du mal à se connecter au VPN.",
-  "Une équipe travaille déjà à la résolution du problème."
+  "Mise à jour de Comptabilité Expert mercredi 01/10 entre 12h45 et 13h15"
 ];
 let lastUpdated = "23/09/2025 13:34";
 
@@ -279,8 +277,8 @@ function renderStatus(s) {
     details.style.display = "none";
     details.innerHTML = "";
   } else if (s === "issue") {
-    title.textContent = "⚠️ Perturbations en cours";
-    message.textContent = "Certains services rencontrent des problèmes.";
+    title.textContent = "⚠️ Avertissements";
+    message.textContent = "Informations ou services perturbés.";
     details.innerHTML = "<ul>" + explanations.map(e => "<li>" + e + "</li>").join("") + "</ul>";
     details.style.display = "block";
   } else if (s === "down") {

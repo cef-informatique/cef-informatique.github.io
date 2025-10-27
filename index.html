@@ -58,6 +58,12 @@ li.dropdown { display: inline-block; }
   height: auto;
 }
 
+.dropbtn::after {
+  content: " ▼";
+  font-size: 0.7em;
+  color: #000;
+}
+  
 /* Champ de recherche : centrage et responsive */
 .text_input {
   text-align: center;
@@ -166,6 +172,13 @@ li.dropdown { display: inline-block; }
  <li><b><a href="https://mib10.mailinblack.com//app/azure-ad-sso/login-request?origin=HOME_WEB_APP" target="_blank">Mail In Black</a></b></li>
  <li><b><a href="https://ecma-solutions.com/espace-connecte/tableau-de-bord" target="_blank">ECMA</a></b></li>
    <li class="dropdown">
+     <b><a href="javascript:void(0)" class="dropbtn">Matériel</a></b>
+     <div class="dropdown-content">
+        <b><a href="https://n8n.int.wizzyoo.fr/form/0051e11d-db14-401c-b887-6affc8a31e47" target="_blank">Emprunt</a></b>
+        <b><a href="https://n8n.int.wizzyoo.fr/form/00d3699a-dfff-4eec-8b3e-07715209bb78" target="_blank">Suivi</a></b>
+     </div>
+   </li>
+  <li class="dropdown">
      <b><a href="javascript:void(0)" class="dropbtn">Production</a></b>
      <div class="dropdown-content">
        <b><a href="https://clickimpots.harvest.fr/" target="_blank">ClickImpôts</a></b>
@@ -176,13 +189,6 @@ li.dropdown { display: inline-block; }
        <b><a href="https://support.myunisoft.fr/hc/fr/requests" target="_blank">Assistance MyUnisoft</a></b>
        <b><a href="https://app.sogescot.com/" target="_blank">SoBank</a></b> 
        <b><a href="https://app.kanta.fr/" target="_blank">Kanta</a></b> 
-     </div>
-   </li>
-   <li class="dropdown">
-     <b><a href="javascript:void(0)" class="dropbtn">Matériel</a></b>
-     <div class="dropdown-content">
-        <b><a href="https://n8n.int.wizzyoo.fr/form/0051e11d-db14-401c-b887-6affc8a31e47" target="_blank">Emprunt</a></b>
-        <b><a href="https://n8n.int.wizzyoo.fr/form/00d3699a-dfff-4eec-8b3e-07715209bb78" target="_blank">Suivi</a></b>
      </div>
    </li>
    <li class="dropdown">
